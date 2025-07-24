@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ui/assets/DashboardFrameSport-mask.png</file>
+        <file>ui/assets/Gauge_RPM.png</file>
+        <file>ui/assets/Gauge_Speed.png</file>
+        <file>ui/assets/footerbar.svg</file>
+        <file>ui/assets/topbar.svg</file>
+    </qresource>
+</RCC>

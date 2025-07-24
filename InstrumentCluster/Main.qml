@@ -1,5 +1,6 @@
 import QtQuick
-import "ui/BottomBar"
+import "ui/TopBar"
+import "ui/FooterBar"
 
 Window {
     width: 640
@@ -7,7 +8,16 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-    BottomBar {
-        id: bottomBar
+    Rectangle {
+        id: backgroundRect
+        color: "black"
+        width: parent.width
+        height: parent.height
+        TopBar {
+            id: topBar
+        }
+        FooterBar {
+            id: footerBar
+        }
     }
 }
