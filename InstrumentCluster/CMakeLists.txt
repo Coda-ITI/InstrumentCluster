@@ -32,6 +32,7 @@ qt_add_qml_module(appInstrumentCluster
         QML_FILES ui/LightControlBar/LightControlBar.qml
         QML_FILES ui/CarModel/CarModel.qml
         QML_FILES ui/MainScreen/MainScreen.qml
+        QML_FILES ui/SpeedometerPlusSign/SpeedometerPlusSign.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

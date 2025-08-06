@@ -14,24 +14,23 @@ Window {
     visible: true
     title: qsTr("Hello World")
     color: "#f0f0f0"
-    CarModel {
-        id: carModel
-    }
     FooterBar {
         id: footerBar
     }
-    GearShiftBar {
-        id: gearShiftBar
+    MainScreen {
+        id: mainScreen
+        GearShiftBar {
+            id: gearShiftBar
+        }
+        LightControlBar {
+            id: lightControlBar
+        }
+        CarModel {
+            id: carModel
+            anchors {
+                left: lightControlBar.right
+            }
+        }
     }
-    LightControlBar {
-        id: lightControlBar
-    }
-    // MainScreen {
-    //     id: mainScreen
-    //     anchors {
-    //         left: lightControlBar.right
-    //         right: gearShiftBar.left
-    //     }
-    // }
 }
 

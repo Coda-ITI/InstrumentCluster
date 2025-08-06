@@ -8,6 +8,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    engine.addImportPath("/home/nemesis/Qt/6.9.1/gcc_64/qml");
+
     // qmlRegisterSingletonType(QUrl("qrc:/ui/StyleTheme/StyleTheme.qml"), "Theme", 1, 0, "Theme");
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,

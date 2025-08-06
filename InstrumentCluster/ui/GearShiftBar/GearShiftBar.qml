@@ -7,7 +7,6 @@ Rectangle {
         right: parent.right
     }
     width: parent.width / 16
-    height: parent.height * 7 / 8
-    z: 1 // make it above the car video
+    height: parent.height
 }
 

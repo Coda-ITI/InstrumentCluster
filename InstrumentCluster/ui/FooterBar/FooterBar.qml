@@ -12,7 +12,7 @@ Rectangle {
     // CC for 0.8 alpha/opacity
     // E6 for 0.9
     gradient: Gradient {
-        GradientStop { position: 0.0; color: "#E6f0f0f0" }
-        GradientStop { position: 1.0; color: "#E6f8f5f5" }
+        GradientStop { position: 0.0; color: "#80f0f0f0" }
+        GradientStop { position: 1.0; color: "#80f8f5f5" }
     }
 }
