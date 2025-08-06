@@ -24,6 +24,10 @@ qt_add_qml_module(appInstrumentCluster
         RESOURCES resources.qrc
         QML_FILES ui/TopBar/TopBar.qml
         QML_FILES ui/FooterBar/FooterBar.qml
+        QML_FILES ui/StyleTheme/StyleTheme.qml
+        QML_FILES ui/Logo/Logo.qml
+        QML_FILES ui/MusicPlayer/MusicPlayer.qml
+        QML_FILES ui/CarSpeed/CarSpeed.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

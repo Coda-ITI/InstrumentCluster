@@ -1,12 +1,12 @@
 import QtQuick 2.15
 
-Image {
+Rectangle {
     id: footerBar
-    source: "qrc:/ui/assets/footerbar.svg"
+    color: "#f8f5f5"
     anchors {
         bottom: parent.bottom
         horizontalCenter: parent.horizontalCenter
     }
     width: parent.width
-    height: parent.height / 12
+    height: parent.height / 8
 }

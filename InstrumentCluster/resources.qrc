@@ -3,7 +3,18 @@
         <file>ui/assets/DashboardFrameSport-mask.png</file>
         <file>ui/assets/Gauge_RPM.png</file>
         <file>ui/assets/Gauge_Speed.png</file>
-        <file>ui/assets/footerbar.svg</file>
-        <file>ui/assets/topbar.svg</file>
+        <file>ui/assets/footerbar.png</file>
+        <file>ui/assets/topbar.png</file>
+        <file>ui/assets/Eagle.png</file>
+        <file>ui/fonts/HelveticaNeueLTCom-Bd.ttf</file>
+        <file>ui/fonts/HelveticaNeueLTCom-Lt.ttf</file>
+        <file>ui/fonts/HelveticaNeueLTCom-Md.ttf</file>
+        <file>ui/fonts/HelveticaNeueLTCom-Roman.ttf</file>
+        <file>ui/assets/file.svg</file>
+        <file>ui/assets/background.svg</file>
+        <file>ui/assets/cluster.jpg</file>
+        <file>ui/assets/cluster.png</file>
+        <file>ui/assets/nav_car_light.mp4</file>
+        <file>ui/assets/nav_car_night.mp4</file>
     </qresource>
 </RCC>
