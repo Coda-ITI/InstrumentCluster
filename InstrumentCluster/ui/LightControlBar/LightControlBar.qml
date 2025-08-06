@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 Rectangle {
     id: lightControlBar
-    color: "#f0f0f0"
+    color: "#AAAAAA"
     anchors {
         left: parent.left
     }

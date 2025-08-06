@@ -20,5 +20,21 @@
         <file>ui/assets/Light_Theme.json</file>
         <file>ui/assets/Dark_Theme.webm</file>
         <file>ui/assets/Light_Theme.webm</file>
+        <file>ui/assets/D.png</file>
+        <file>ui/assets/D_Sel.png</file>
+        <file>ui/assets/N.png</file>
+        <file>ui/assets/N_Sel.png</file>
+        <file>ui/assets/P.png</file>
+        <file>ui/assets/P_Sel.png</file>
+        <file>ui/assets/R.png</file>
+        <file>ui/assets/R_Sel.png</file>
+        <file>ui/assets/speed-limit-test.png</file>
+        <file>ui/assets/wheel.png</file>
+        <file>ui/assets/alert.json</file>
+        <file>ui/assets/icn_leftindicator.svg</file>
+        <file>ui/assets/icn_leftindicator_glow.svg</file>
+        <file>ui/assets/icn_rightindicator.svg</file>
+        <file>ui/assets/icn_rightindicator _glow.svg</file>
+        <file>ui/assets/iti-logo.png</file>
     </qresource>
 </RCC>

@@ -8,11 +8,21 @@ Rectangle {
     }
     width: parent.width
     height: parent.height / 8
-    z: 1 // make it above the car video
+    // z: 1 // make it above the car video
     // CC for 0.8 alpha/opacity
     // E6 for 0.9
     gradient: Gradient {
         GradientStop { position: 0.0; color: "#80f0f0f0" }
         GradientStop { position: 1.0; color: "#80f8f5f5" }
+    }
+    Image {
+        id: itiLogo
+        source: "qrc:/ui/assets/iti-logo.png"
+        anchors {
+            verticalCenter: parent.verticalCenter
+            centerIn: parent
+        }
+        height: parent.height * 0.75
+        fillMode: Image.PreserveAspectFit
     }
 }
