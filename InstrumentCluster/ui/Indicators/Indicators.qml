@@ -19,7 +19,7 @@ Rectangle {
             top: indicatorBar.top
             topMargin: 12
             left: indicatorBar.left
-            leftMargin: 25
+            leftMargin: 30
         }
 
         setIcon: checked
@@ -66,7 +66,7 @@ Rectangle {
             top: indicatorBar.top
             topMargin: 12
             right: indicatorBar.right
-            rightMargin: 25
+            rightMargin: 30
         }
 
         setIcon: checked

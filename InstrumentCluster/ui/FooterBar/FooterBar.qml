@@ -12,8 +12,8 @@ Rectangle {
     // CC for 0.8 alpha/opacity
     // E6 for 0.9
     gradient: Gradient {
-        GradientStop { position: 0.0; color: "#80f0f0f0" }
-        GradientStop { position: 1.0; color: "#80f8f5f5" }
+        GradientStop { position: 0.0; color: "#F0F0F0" }
+        GradientStop { position: 1.0; color: "#AAAAAA" }
     }
     Image {
         id: itiLogo
@@ -21,8 +21,36 @@ Rectangle {
         anchors {
             verticalCenter: parent.verticalCenter
             centerIn: parent
+            horizontalCenter: parent.horizontalCenter
         }
-        height: parent.height * 0.75
+        height: parent.height * 0.8
         fillMode: Image.PreserveAspectFit
+    }
+    Text {
+        id: dateTimeDisplay
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: footerBar.left
+            leftMargin: 40
+        }
+        font.pixelSize: 24
+        font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
+        color: "#000000"
+        // text: systemHandler.currentTime
+        text: "10:09"
+    }
+
+    Text {
+        id: outdoorTempDisplay
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: dateTimeDisplay.right
+            leftMargin: 35
+        }
+        font.pixelSize: 24
+        font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
+        color: "#000000"
+        // text: systemHandler.outdoorTemp + "°C"
+        text: "24°C"
     }
 }

@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 Rectangle {
     id: speed
-    color: "#FFFF00"
+    color: "#F0F0F0"
     width: parent.width
     height: parent.height * 8.5 / 10
     Text {
@@ -40,22 +40,9 @@ Rectangle {
             right: speed.right
             rightMargin: 30
         }
-        width: speed.width / 9
-        height: speed.height / 9
+        width: speed.width / 7
+        height: speed.height / 7
         source: "qrc:/ui/assets/speed-limit-test.png"
-        fillMode: Image.PreserveAspectFit
-    }
-    Image {
-        id: driveMode
-        anchors {
-            top: speed.top
-            topMargin: 30
-            left: speed.left
-            leftMargin: 30
-        }
-        width: speed.width / 9
-        height: speed.height / 9
-        source: "qrc:/ui/assets/wheel.png"
         fillMode: Image.PreserveAspectFit
     }
 }

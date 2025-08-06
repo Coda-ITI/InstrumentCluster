@@ -36,5 +36,11 @@
         <file>ui/assets/icn_rightindicator.svg</file>
         <file>ui/assets/icn_rightindicator _glow.svg</file>
         <file>ui/assets/iti-logo.png</file>
+        <file>ui/assets/fog-light-off.png</file>
+        <file>ui/assets/fog-light-on.png</file>
+        <file>ui/assets/high-beam-off.png</file>
+        <file>ui/assets/high-beam-on.png</file>
+        <file>ui/assets/low-beam-off.png</file>
+        <file>ui/assets/low-beam-on.png</file>
     </qresource>
 </RCC>
