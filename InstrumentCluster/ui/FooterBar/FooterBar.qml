@@ -43,7 +43,6 @@ Rectangle {
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
         color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
         text: systemHandler.currentTime
-        // text: "10:09"
     }
 
     Text {
@@ -56,7 +55,6 @@ Rectangle {
         font.pixelSize: 24
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
         color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
-        // text: systemHandler.outdoorTemp + "°C"
         text: "24°C"
     }
 }

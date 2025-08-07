@@ -12,6 +12,7 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 # ADDED BY ME
 pkg_check_modules(GPIOD REQUIRED libgpiod)
@@ -53,6 +54,7 @@ qt_add_qml_module(appInstrumentCluster
         SOURCES Controllers/system.h Controllers/system.cpp
         SOURCES Controllers/lightcontrol.h Controllers/lightcontrol.cpp
         SOURCES Controllers/indicators.h Controllers/indicators.cpp
+        SOURCES Controllers/readingscommportal.h Controllers/readingscommportal.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -74,6 +76,7 @@ target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 
 # ADDED BY ME
 target_link_libraries(appInstrumentCluster PRIVATE ${GPIOD_LIBRARIES})
+target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 
 include(GNUInstallDirs)
