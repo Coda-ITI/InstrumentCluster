@@ -13,7 +13,7 @@ Rectangle {
             verticalCenter: speed.verticalCenter
         }
         text: qsTr("100")
-        color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
+        color: ThemeSettings.isLightMode ? "#000000" : "#D0D0D0"
         font.pixelSize: 144
         font.capitalization: Font.Capitalize
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"

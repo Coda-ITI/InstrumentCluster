@@ -2,5 +2,5 @@ pragma Singleton
 import QtQuick 2.15
 
 QtObject {
-    property bool isLightMode: true
+    property bool isLightMode: false
 }
