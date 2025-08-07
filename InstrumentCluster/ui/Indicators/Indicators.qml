@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import Qt.labs.lottieqt 1.0
 import "../IconButton"
+
 Rectangle {
     id: indicatorBar
     color: "#F0F0F0"
@@ -9,6 +10,7 @@ Rectangle {
     }
     width: parent.width
     height: parent.height * 1.5 / 10
+
     IconButton {
         id: leftIndicator
         roundIcon: true
@@ -48,7 +50,9 @@ Rectangle {
         }
 
         onCheckedChanged: {
-            if (!checked) {
+            if (checked) {
+                rightIndicator.checked = false // Turn off the other
+            } else {
                 const target = roundIcon ? roundIconSource : iconSource
                 if (target) target.opacity = 1
             }
@@ -85,7 +89,7 @@ Rectangle {
                 duration: 500
             }
             NumberAnimation {
-                target: lefrightIndicatortIndicator.roundIcon ? rightIndicator.roundIconSource : rightIndicator.iconSource
+                target: rightIndicator.roundIcon ? rightIndicator.roundIconSource : rightIndicator.iconSource
                 property: "opacity"
                 from: 1
                 to: 0
@@ -93,13 +97,13 @@ Rectangle {
             }
         }
 
-        // Restore full opacity when unchecked
         onCheckedChanged: {
-            if (!checked) {
+            if (checked) {
+                leftIndicator.checked = false
+            } else {
                 const target = roundIcon ? roundIconSource : iconSource
                 if (target) target.opacity = 1
             }
         }
     }
-
 }
