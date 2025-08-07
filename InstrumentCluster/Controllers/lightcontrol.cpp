@@ -6,12 +6,29 @@ LightControl::LightControl(QObject *parent)
     , m_highBeam(false)
     , m_fogBeam(false)
 {
-    // gpiod::chip chip(chipName);
-    // gpio.setGpioDirOut(LED_GPIO_PIN);
-    // gpio.setGpioValue(LED_GPIO_PIN,ledState);
+    // chip = chip(chipName);
+
+    // lowBeamGpioLine = chip.get_line(lowBeamGpioPin);
+    // lowBeamGpioLine.request({
+    //     "lowBeamGpioLine",
+    //     gpiod::line_request::DIRECTION_OUTPUT,
+    //     0
+    // });
+
+    // highBeamGpioLine = chip.get_line(highBeamGpioPin);
+    // highBeamGpioLine.request({
+    //     "highBeamGpioLine",
+    //     gpiod::line_request::DIRECTION_OUTPUT,
+    //     0
+    // });
+
+    // fogBeamGpioLine = chip.get_line(fogBeamGpioPin);
+    // fogBeamGpioLine.request({
+    //     "fogBeamGpioLine",
+    //     gpiod::line_request::DIRECTION_OUTPUT,
+    //     0
+    // });
 }
-
-
 
 bool LightControl::lowBeam() const
 {
@@ -26,7 +43,7 @@ void LightControl::setLowBeam(bool newLowBeam)
     emit lowBeamChanged();
 
     // added by me
-    // writeToFile("/sys/class/gpio/gpio26/value", m_lowBeam ? "1" : "0");
+    // gpioPinWrite(lowBeamGpioPin, m_lowBeam? 1 : 0);
 }
 
 bool LightControl::highBeam() const
@@ -42,7 +59,7 @@ void LightControl::setHighBeam(bool newHighBeam)
     emit highBeamChanged();
 
     // added by me
-    // writeToFile("/sys/class/gpio/gpio26/value", m_lowBeam ? "1" : "0");
+    // gpioPinWrite(highBeamGpioPin, m_highBeam? 1 : 0);
 }
 
 bool LightControl::fogBeam() const
@@ -58,35 +75,41 @@ void LightControl::setFogBeam(bool newFogBeam)
     emit fogBeamChanged();
 
     // added by me
-    // writeToFile("/sys/class/gpio/gpio26/value", m_lowBeam ? "1" : "0");
+    // gpioPinWrite(fogBeamGpioPin, m_fogBeam? 1 : 0);
 }
 
+void LightControl::gpioPinWrite(const int &gpioPin, const int &value)
+{
+    switch (gpioPin)
+    {
+        case LOW_BEAM_PIN:
+            // lowBeamGpioLine.set_value(value);
+        break;
 
-//  // or "gpiochip4" for some pins
-// const int gpioPin = 17; // GPIO 17 (change as needed)
+        case HIGH_BEAM_PIN:
+            // highBeamGpioLine.set_value(value);
+        break;
 
-// try {
-//     // Open the GPIO chip
-//
+        case FOG_BEAM_PIN:
+            // fogBeamGpioLine.set_value(value);
+        break;
+    }
+}
 
-//     // Get the GPIO line
-//     gpiod::line line = chip.get_line(gpioPin);
+LightControl::~LightControl()
+{
+    // if (lowBeamGpioLine.is_requested()) {
+    //     lowBeamGpioLine.set_value(0);
+    //     lowBeamGpioLine.release();
+    // }
 
-//     // Request the line as an output with initial value LOW
-//     line.request({
-//         "example",               // Consumer label (for debugging)
-//         gpiod::line_request::DIRECTION_OUTPUT,
-//         0                        // Initial value (0 = LOW, 1 = HIGH)
-//     });
+    // if (highBeamGpioLine.is_requested()) {
+    //     highBeamGpioLine.set_value(0);
+    //     highBeamGpioLine.release();
+    // }
 
-//     std::cout << "Toggling GPIO " << gpioPin << "..." << std::endl;
-
-//     // Toggle the GPIO state
-//     for (int i = 0; i < 5; i++) {
-//         line.set_value(i % 2); // Alternate between 0 and 1
-//         std::cout << "GPIO " << gpioPin << " = " << line.get_value() << std::endl;
-//         sleep(1); // Wait 1 second
-//     }
-
-//     // Release the line (optional, destructor handles cleanup)
-//     line.release();
+    // if (fogBeamGpioLine.is_requested()) {
+    //     fogBeamGpioLine.set_value(0);
+    //     fogBeamGpioLine.release();
+    // }
+}

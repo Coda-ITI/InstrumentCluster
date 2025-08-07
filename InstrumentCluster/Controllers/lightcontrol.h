@@ -4,6 +4,10 @@
 #include <QObject>
 #include <gpiod.hpp>
 
+constexpr int LOW_BEAM_PIN = 17;
+constexpr int HIGH_BEAM_PIN = 21;
+constexpr int FOG_BEAM_PIN = 26;
+
 class LightControl : public QObject
 {
     Q_OBJECT
@@ -12,6 +16,7 @@ class LightControl : public QObject
     Q_PROPERTY(bool fogBeam READ fogBeam WRITE setFogBeam NOTIFY fogBeamChanged FINAL)
 public:
     explicit LightControl(QObject *parent = nullptr);
+    ~LightControl();
 
     bool lowBeam() const;
     void setLowBeam(bool newLowBeam);
@@ -34,9 +39,17 @@ private:
 
     const std::string chipName = "gpiochip0";
 
-    const int lowBeamGpioPin = 17;
-    const int highBeamGpioPin = 21;
-    const int fogBeamGpioPin = 26;
+    // gpiod::chip chip;
+
+    // gpiod::line lowBeamGpioLine;
+    // gpiod::line highBeamGpioLine;
+    // gpiod::line fogBeamGpioLine;
+
+    const int lowBeamGpioPin = LOW_BEAM_PIN;
+    const int highBeamGpioPin = HIGH_BEAM_PIN;
+    const int fogBeamGpioPin = FOG_BEAM_PIN;
+
+    void gpioPinWrite(const int &gpioPin, const int &value);
 };
 
 #endif // LIGHTCONTROL_H
