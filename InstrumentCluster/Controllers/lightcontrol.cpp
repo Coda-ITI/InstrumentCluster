@@ -6,6 +6,8 @@ LightControl::LightControl(QObject *parent)
     , m_highBeam(false)
     , m_fogBeam(false)
 {
+
+    std::cout << "is the constructor getting called?" << std::endl;
     // chip = chip(chipName);
 
     // lowBeamGpioLine = chip.get_line(lowBeamGpioPin);
@@ -42,6 +44,9 @@ void LightControl::setLowBeam(bool newLowBeam)
     m_lowBeam = newLowBeam;
     emit lowBeamChanged();
 
+    // for debugging
+    std::cout << "m_lowBeam = " <<  m_lowBeam << std::endl;
+
     // added by me
     // gpioPinWrite(lowBeamGpioPin, m_lowBeam? 1 : 0);
 }
@@ -58,6 +63,9 @@ void LightControl::setHighBeam(bool newHighBeam)
     m_highBeam = newHighBeam;
     emit highBeamChanged();
 
+    // for debugging
+    std::cout << "m_highBeam = " <<  m_highBeam << std::endl;
+
     // added by me
     // gpioPinWrite(highBeamGpioPin, m_highBeam? 1 : 0);
 }
@@ -73,6 +81,9 @@ void LightControl::setFogBeam(bool newFogBeam)
         return;
     m_fogBeam = newFogBeam;
     emit fogBeamChanged();
+
+    // for debugging
+    std::cout << "m_fogBeam = " <<  m_fogBeam << std::endl;
 
     // added by me
     // gpioPinWrite(fogBeamGpioPin, m_fogBeam? 1 : 0);

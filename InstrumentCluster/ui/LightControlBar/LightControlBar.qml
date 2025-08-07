@@ -10,6 +10,11 @@ Rectangle {
     }
     width: parent.width / 16
     height: parent.height
+
+    Component.onCompleted: {
+        console.log("Initial low beam state:", lightControl.lowBeam)
+    }
+
     IconButton {
         id: nearLights
         anchors {
@@ -21,6 +26,11 @@ Rectangle {
         iconWidth: lightControlBar.width / 2
         iconHeight: 35
         checkable: true
+        checked: lightControl.lowBeam
+
+        onClicked: {
+            lightControl.lowBeam = !lightControl.lowBeam
+        }
 
         setIcon: checked
             ? "qrc:/ui/assets/low-beam-on.png"
@@ -45,6 +55,11 @@ Rectangle {
         iconWidth: lightControlBar.width / 2
         iconHeight: 35
         checkable: true
+        checked: lightControl.highBeam
+
+        onClicked: {
+            lightControl.highBeam = !lightControl.highBeam
+        }
 
         setIcon: checked
             ? "qrc:/ui/assets/high-beam-on.png"
@@ -68,6 +83,11 @@ Rectangle {
         iconWidth: lightControlBar.width / 2
         iconHeight: 35
         checkable: true
+        checked: lightControl.fogBeam
+
+        onClicked: {
+            lightControl.fogBeam = !lightControl.fogBeam
+        }
 
         setIcon: checked
             ? "qrc:/ui/assets/fog-light-on.png"

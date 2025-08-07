@@ -2,7 +2,8 @@
 #define LIGHTCONTROL_H
 
 #include <QObject>
-#include <gpiod.hpp>
+#include <gpiod.h>
+#include <iostream>
 
 constexpr int LOW_BEAM_PIN = 17;
 constexpr int HIGH_BEAM_PIN = 21;
@@ -18,14 +19,14 @@ public:
     explicit LightControl(QObject *parent = nullptr);
     ~LightControl();
 
-    bool lowBeam() const;
-    void setLowBeam(bool newLowBeam);
+    Q_INVOKABLE bool lowBeam() const;
+    Q_INVOKABLE void setLowBeam(bool newLowBeam);
 
-    bool highBeam() const;
-    void setHighBeam(bool newHighBeam);
+    Q_INVOKABLE bool highBeam() const;
+    Q_INVOKABLE void setHighBeam(bool newHighBeam);
 
-    bool fogBeam() const;
-    void setFogBeam(bool newFogBeam);
+    Q_INVOKABLE bool fogBeam() const;
+    Q_INVOKABLE void setFogBeam(bool newFogBeam);
 
 signals:
     void lowBeamChanged();
