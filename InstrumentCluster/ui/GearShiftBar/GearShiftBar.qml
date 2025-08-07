@@ -15,7 +15,7 @@ Rectangle {
             return gear === currentGear ? "#000000" : "#A5A5A5"
         }
         else {
-            return gear === currentGear ? "#FFFFFF" : "#A5A5A5"
+            return gear === currentGear ? "#A5A5A5" : "#5A5A5A"
         }
     }
 
