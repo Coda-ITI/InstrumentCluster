@@ -2,6 +2,10 @@
 #define READINGSCOMMPORTAL_H
 
 #include <QObject>
+#include <QLocalSocket>
+#include <QSocketNotifier>
+#include <QDebug>
+#include <iostream>
 
 /*
  * constexpr for speed && gear && sign && theme state
@@ -53,6 +57,12 @@ private:
     QString m_selectedGear;
     QString m_detectedRoadSign;
     bool m_isLightMode;
+
+    QLocalSocket* m_socket = nullptr;
+    QByteArray m_readBuffer;
+
+    void setupSocket();
+    void parseReceivedMessage(quint8 msgId, const QByteArray &payload);
 };
 
 #endif // READINGSCOMMPORTAL_H
