@@ -47,7 +47,6 @@ Rectangle {
             }
         }
 
-        // Restore full opacity when unchecked
         onCheckedChanged: {
             if (!checked) {
                 const target = roundIcon ? roundIconSource : iconSource
