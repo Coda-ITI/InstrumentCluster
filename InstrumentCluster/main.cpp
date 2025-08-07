@@ -11,6 +11,10 @@ int main(int argc, char *argv[])
     engine.addImportPath("/home/nemesis/Qt/6.9.1/gcc_64/qml");
 
     // qmlRegisterSingletonType(QUrl("qrc:/ui/StyleTheme/StyleTheme.qml"), "Theme", 1, 0, "Theme");
+    // qmlRegisterSingletonType(QUrl("qrc:/ThemeSettings.qml"),
+    //                          "App.Settings", 1, 0,
+    //                          "ThemeSettings");
+
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
                      &app, []() { QCoreApplication::exit(-1); },

@@ -16,6 +16,11 @@ qt_add_executable(appInstrumentCluster
     main.cpp
 )
 
+set_source_files_properties(
+    ui/ThemeSettings/ThemeSettings.qml
+    PROPERTIES QT_QML_SINGLETON_TYPE TRUE
+)
+
 qt_add_qml_module(appInstrumentCluster
     URI InstrumentCluster
     VERSION 1.0
@@ -38,6 +43,7 @@ qt_add_qml_module(appInstrumentCluster
         QML_FILES ui/Speed/Speed.qml
         QML_FILES ui/BottomLine/BottomLine.qml
         QML_FILES ui/IconButton/IconButton.qml
+        QML_FILES ui/ThemeSettings/ThemeSettings.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -1,8 +1,10 @@
 import QtQuick 2.15
+// import "../ThemeSettings"
+import InstrumentCluster 1.0
 
 Rectangle {
     id: gearShiftBar
-    color: "#F0F0F0"
+    color: ThemeSettings.isLightMode ? "#F0F0F0" : "000000"
     anchors.right: parent.right
     width: parent.width / 16
     height: parent.height
@@ -10,7 +12,12 @@ Rectangle {
     property string currentGear: "D"
 
     function gearColor(gear) {
-        return gear === currentGear ? "#000000" : "#A5A5A5"
+        if (ThemeSettings.isLightMode) {
+            return gear === currentGear ? "#000000" : "#A5A5A5"
+        }
+        else {
+            return gear === currentGear ? "#FFFFFF" : "#A5A5A5"
+        }
     }
 
     Text {
