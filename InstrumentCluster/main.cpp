@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <Controllers/system.h>
-// #include <Controllers/lightcontrol.h>
+#include <Controllers/lightcontrol.h>
 
 int main(int argc, char *argv[])
 {
@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
 
     // defining a system object
     System m_systemHandler;
-    // LightControl m_lightControlHandler;
+    LightControl m_lightControlHandler;
     QQmlApplicationEngine engine;
 
     engine.addImportPath("/home/nemesis/Qt/6.9.1/gcc_64/qml");
 
     QQmlContext * context(engine.rootContext());
     context->setContextProperty("systemHandler", &m_systemHandler);
-    // context->setContextProperty("lightControl", &m_lightControlHandler);
+    context->setContextProperty("lightControl", &m_lightControlHandler);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
                      &app, []() { QCoreApplication::exit(-1); },
