@@ -1,9 +1,10 @@
 import QtQuick 2.15
 import "../IconButton"
+import InstrumentCluster 1.0
 
 Rectangle {
     id: lightControlBar
-    color: "#F0F0F0"
+    color: ThemeSettings.isLightMode ? "#F0F0F0" : "#000000"
     anchors {
         left: parent.left
     }

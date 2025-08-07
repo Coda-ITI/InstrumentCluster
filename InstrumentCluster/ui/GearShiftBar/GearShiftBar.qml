@@ -1,5 +1,4 @@
 import QtQuick 2.15
-// import "../ThemeSettings"
 import InstrumentCluster 1.0
 
 Rectangle {

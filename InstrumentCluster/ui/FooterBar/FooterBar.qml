@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import InstrumentCluster 1.0
 
 Rectangle {
     id: footerBar
@@ -8,13 +9,18 @@ Rectangle {
     }
     width: parent.width
     height: parent.height / 8
-    // z: 1 // make it above the car video
-    // CC for 0.8 alpha/opacity
-    // E6 for 0.9
     gradient: Gradient {
-        GradientStop { position: 0.0; color: "#F0F0F0" }
-        GradientStop { position: 1.0; color: "#AAAAAA" }
+        GradientStop {
+            position: 0.0
+            color: ThemeSettings.isLightMode ? "#F0F0F0" : "#000000"
+        }
+        GradientStop {
+            position: 1.0
+            color: ThemeSettings.isLightMode ? "#F0F0F0" : "#000000"
+        }
     }
+
+
     Image {
         id: itiLogo
         source: "qrc:/ui/assets/iti-logo.png"
@@ -35,7 +41,7 @@ Rectangle {
         }
         font.pixelSize: 24
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
-        color: "#000000"
+        color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
         // text: systemHandler.currentTime
         text: "10:09"
     }
@@ -49,7 +55,7 @@ Rectangle {
         }
         font.pixelSize: 24
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
-        color: "#000000"
+        color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
         // text: systemHandler.outdoorTemp + "°C"
         text: "24°C"
     }

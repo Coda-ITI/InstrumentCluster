@@ -1,10 +1,11 @@
 import QtQuick 2.15
 import Qt.labs.lottieqt 1.0
 import "../IconButton"
+import InstrumentCluster 1.0
 
 Rectangle {
     id: indicatorBar
-    color: "#F0F0F0"
+    color: ThemeSettings.isLightMode ? "#F0F0F0" : "#000000"
     anchors {
         top: parent.top
     }

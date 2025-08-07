@@ -1,8 +1,9 @@
 import QtQuick 2.15
+import InstrumentCluster 1.0
 
 Rectangle {
     id: speed
-    color: "#F0F0F0"
+    color: ThemeSettings.isLightMode ? "#F0F0F0" : "#000000"
     width: parent.width
     height: parent.height * 8.5 / 10
     Text {
@@ -12,7 +13,7 @@ Rectangle {
             verticalCenter: speed.verticalCenter
         }
         text: qsTr("100")
-        color: "#000000"
+        color: ThemeSettings.isLightMode ? "#000000" : "#FFFFFF"
         font.pixelSize: 144
         font.capitalization: Font.Capitalize
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
@@ -26,7 +27,7 @@ Rectangle {
             top: speedVal.bottom
         }
         text: qsTr("KM/H")
-        color: "#5A5A5A"
+        color: ThemeSettings.isLightMode ? "#5A5A5A" : "#A5A5A5"
         font.pixelSize: 36
         font.capitalization: Font.Capitalize
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"

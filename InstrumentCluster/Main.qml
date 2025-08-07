@@ -54,13 +54,6 @@ Window {
             BottomLine {
                 id: bottomLine
             }
-
-            // SpeedUnit {
-            //     id: speedUnit
-            //     anchors {
-            //         top: speed.bottom
-            //     }
-            // }
         }
     }
 }
