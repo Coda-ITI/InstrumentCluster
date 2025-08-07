@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <Controllers/system.h>
 #include <Controllers/lightcontrol.h>
+#include <Controllers/indicators.h>
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
     // defining a system object
     System m_systemHandler;
     LightControl m_lightControlHandler;
+    Indicators m_indicators;
     QQmlApplicationEngine engine;
 
     engine.addImportPath("/home/nemesis/Qt/6.9.1/gcc_64/qml");
@@ -20,6 +22,7 @@ int main(int argc, char *argv[])
     QQmlContext * context(engine.rootContext());
     context->setContextProperty("systemHandler", &m_systemHandler);
     context->setContextProperty("lightControl", &m_lightControlHandler);
+    context->setContextProperty("indicators", &m_indicators);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
                      &app, []() { QCoreApplication::exit(-1); },

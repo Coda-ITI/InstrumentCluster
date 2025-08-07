@@ -18,6 +18,12 @@ Rectangle {
         iconWidth: 50
         iconHeight: 50
         checkable: true
+        checked: indicators.leftBlinker
+
+        onClicked: {
+            indicators.leftBlinker = !indicators.leftBlinker
+        }
+
         anchors {
             top: indicatorBar.top
             topMargin: 12
@@ -66,6 +72,12 @@ Rectangle {
         iconWidth: 50
         iconHeight: 50
         checkable: true
+        checked: indicators.rightBlinker
+
+        onClicked: {
+            indicators.rightBlinker = !indicators.rightBlinker
+        }
+
         anchors {
             top: indicatorBar.top
             topMargin: 12
