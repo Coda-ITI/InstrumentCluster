@@ -8,7 +8,7 @@ Rectangle {
     width: parent.width / 16
     height: parent.height
 
-    property string currentGear: "D"
+    property string currentGear: readings.selectedGear
 
     function gearColor(gear) {
         if (ThemeSettings.isLightMode) {

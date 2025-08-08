@@ -12,7 +12,7 @@ Rectangle {
             horizontalCenter: speed.horizontalCenter
             verticalCenter: speed.verticalCenter
         }
-        text: qsTr("100")
+        text: readings.speedVal
         color: ThemeSettings.isLightMode ? "#000000" : "#D0D0D0"
         font.pixelSize: 144
         font.capitalization: Font.Capitalize
