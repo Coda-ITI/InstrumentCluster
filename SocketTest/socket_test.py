@@ -37,7 +37,7 @@ def send_message(msg_id: int, payload: str):
 
 # Setup value sequences
 gear_cycle = itertools.cycle(["P", "N", "D", "R"])
-sign_cycle = itertools.cycle(["STOP", "SpeedLimit", "TurnLeft", "TurnRight"])
+sign_cycle = itertools.cycle(["Stop", "TurnLeft", "TurnRight", "SpeedLimit80", "SpeedLimit50"])
 theme_cycle = itertools.cycle(["1", "0"])  # 1 = true, 0 = false
 
 # Speed ramp up and down

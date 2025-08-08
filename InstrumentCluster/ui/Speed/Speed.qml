@@ -43,7 +43,23 @@ Rectangle {
         }
         width: speed.width / 7
         height: speed.height / 7
-        source: "qrc:/ui/assets/speed-limit-test.png"
+        // source: "qrc:/ui/assets/speed-limit-test.png"
         fillMode: Image.PreserveAspectFit
+        source: {
+            switch (readings.detectedRoadSign) {
+            case "Stop":
+                return "qrc:/ui/assets/stop.png"
+            case "TurnLeft":
+                return "qrc:/ui/assets/turn-left.png"
+            case "TurnRight":
+                return "qrc:/ui/assets/turn-right.png"
+            case "SpeedLimit80":
+                return "qrc:/ui/assets/speed-limit-80.png"
+            case "SpeedLimit50":
+                return "qrc:/ui/assets/speed-limit-50.png"
+            default:
+                return ""
+            }
+        }
     }
 }

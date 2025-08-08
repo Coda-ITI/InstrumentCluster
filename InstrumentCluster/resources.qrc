@@ -42,5 +42,10 @@
         <file>ui/assets/high-beam-on.png</file>
         <file>ui/assets/low-beam-off.png</file>
         <file>ui/assets/low-beam-on.png</file>
+        <file>ui/assets/speed-limit-50.png</file>
+        <file>ui/assets/speed-limit-80.png</file>
+        <file>ui/assets/stop.png</file>
+        <file>ui/assets/turn-left.png</file>
+        <file>ui/assets/turn-right.png</file>
     </qresource>
 </RCC>
