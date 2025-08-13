@@ -15,7 +15,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 
 # ADDED BY ME
-#pkg_check_modules(GPIOD REQUIRED libgpiod)
+pkg_check_modules(GPIOD REQUIRED libgpiod)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -75,7 +75,7 @@ target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 
 # ADDED BY ME
-#target_link_libraries(appInstrumentCluster PRIVATE ${GPIOD_LIBRARIES})
+target_link_libraries(appInstrumentCluster PRIVATE ${GPIOD_LIBRARIES})
 
 include(GNUInstallDirs)
 install(TARGETS appInstrumentCluster

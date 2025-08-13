@@ -2,7 +2,8 @@
 #define LIGHTCONTROL_H
 
 #include <QObject>
-// #include <gpiod.h>
+#include <gpiod.h>
+#include <gpiod.hpp>
 #include <iostream>
 
 constexpr int LOW_BEAM_PIN = 17;

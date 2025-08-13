@@ -2,7 +2,8 @@
 #define INDICATORS_H
 
 #include <QObject>
-// #include <gpiod.h>
+#include <gpiod.h>
+#include <gpiod.hpp>
 #include <iostream>
 
 constexpr int RIGHT_BLINKER_PIN = 17;
@@ -33,10 +34,10 @@ private:
 
     const std::string chipName = "gpiochip0";
 
-    // gpiod::chip chip;
+    gpiod::chip chip;
 
-    // gpiod::line rightBlinkerGpioLine;
-    // gpiod::line leftBlinkerGpioLine;
+    gpiod::line rightBlinkerGpioLine;
+    gpiod::line leftBlinkerGpioLine;
 
     const int rightBlinkerGpioPin = RIGHT_BLINKER_PIN;
     const int leftBlinkerGpioPin = LEFT_BLINKER_PIN;
