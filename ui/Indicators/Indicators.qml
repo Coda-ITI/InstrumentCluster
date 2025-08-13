@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import Qt.labs.lottieqt 1.0
 import "../IconButton"
 import InstrumentCluster 1.0
 
