@@ -15,7 +15,9 @@ find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 
 # ADDED BY ME
+find_package(PkgConfig REQUIRED)
 pkg_check_modules(GPIOD REQUIRED libgpiod)
+pkg_check_modules(GPIOHAL REQUIRED gpiohalrpi5)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -68,15 +70,20 @@ set_target_properties(appInstrumentCluster PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+# ADDED BY ME
 target_link_libraries(appInstrumentCluster
     PRIVATE Qt6::Quick
+    PRIVATE Qt6::Core
+    PRIVATE ${GPIOD_LIBRARIES}
+    PRIVATE ${GPIOHAL_LIBRARIES}
 )
-target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
-target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 
 # ADDED BY ME
-target_link_libraries(appInstrumentCluster PRIVATE ${GPIOD_LIBRARIES})
-target_include_directories(appInstrumentCluster PRIVATE ${GPIOD_INCLUDE_DIRS})
+target_include_directories(appInstrumentCluster PRIVATE
+    ${GPIOD_INCLUDE_DIRS}
+    ${GPIOHAL_INCLUDE_DIRS}
+)
+
 
 include(GNUInstallDirs)
 install(TARGETS appInstrumentCluster

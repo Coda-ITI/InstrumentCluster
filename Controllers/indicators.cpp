@@ -6,21 +6,24 @@ Indicators::Indicators(QObject *parent)
     , m_leftBlinker(false)
 {
     std::cout << "is the constructor getting called?" << std::endl;
-    chip = gpiod::chip(chipName);
 
-    rightBlinkerGpioLine = chip.get_line(rightBlinkerGpioPin);
-    rightBlinkerGpioLine.request({
-        "rightBlinkerGpioLine",
-        gpiod::line_request::DIRECTION_OUTPUT,
-        0
-    });
+    gpio.setGpioDirOut(leftBlinkerGpioPin);
+    gpio.setGpioDirOut(rightBlinkerGpioPin);
+    // chip = gpiod::chip(chipName);
 
-    leftBlinkerGpioLine = chip.get_line(leftBlinkerGpioPin);
-    leftBlinkerGpioLine.request({
-        "leftBlinkerGpioLine",
-        gpiod::line_request::DIRECTION_OUTPUT,
-        0
-    });
+    // rightBlinkerGpioLine = chip.get_line(rightBlinkerGpioPin);
+    // rightBlinkerGpioLine.request({
+    //     "rightBlinkerGpioLine",
+    //     gpiod::line_request::DIRECTION_OUTPUT,
+    //     0
+    // });
+
+    // leftBlinkerGpioLine = chip.get_line(leftBlinkerGpioPin);
+    // leftBlinkerGpioLine.request({
+    //     "leftBlinkerGpioLine",
+    //     gpiod::line_request::DIRECTION_OUTPUT,
+    //     0
+    // });
 }
 
 bool Indicators::rightBlinker() const
@@ -39,7 +42,8 @@ void Indicators::setRightBlinker(bool newRightBlinker)
     std::cout << "m_rightBlinker = " <<  m_rightBlinker << std::endl;
 
     // added by me
-    gpioPinWrite(rightBlinkerGpioPin, m_rightBlinker? 1 : 0);
+    // gpioPinWrite(rightBlinkerGpioPin, m_rightBlinker? 1 : 0);
+    gpio.setGpioValue(rightBlinkerGpioPin, m_rightBlinker? 1 : 0);
 }
 
 bool Indicators::leftBlinker() const
@@ -58,32 +62,36 @@ void Indicators::setLeftBlinker(bool newLeftBlinker)
     std::cout << "m_leftBlinker = " <<  m_leftBlinker << std::endl;
 
     // added by me
-    gpioPinWrite(leftBlinkerGpioPin, m_leftBlinker? 1 : 0);
+    // gpioPinWrite(leftBlinkerGpioPin, m_leftBlinker? 1 : 0);
+    gpio.setGpioValue(leftBlinkerGpioPin, m_leftBlinker? 1 : 0);
 }
 
-void Indicators::gpioPinWrite(const int &gpioPin, const int &value)
-{
-    switch (gpioPin)
-    {
-    case RIGHT_BLINKER_PIN:
-        rightBlinkerGpioLine.set_value(value);
-        break;
+// void Indicators::gpioPinWrite(const int &gpioPin, const int &value)
+// {
+//     switch (gpioPin)
+//     {
+//     case RIGHT_BLINKER_PIN:
+//         rightBlinkerGpioLine.set_value(value);
+//         break;
 
-    case LEFT_BLINKER_PIN:
-        leftBlinkerGpioLine.set_value(value);
-        break;
-    }
-}
+//     case LEFT_BLINKER_PIN:
+//         leftBlinkerGpioLine.set_value(value);
+//         break;
+//     }
+// }
 
 Indicators::~Indicators()
 {
-    if (rightBlinkerGpioLine.is_requested()) {
-        rightBlinkerGpioLine.set_value(0);
-        rightBlinkerGpioLine.release();
-    }
+    // if (rightBlinkerGpioLine.is_requested()) {
+    //     rightBlinkerGpioLine.set_value(0);
+    //     rightBlinkerGpioLine.release();
+    // }
 
-    if (leftBlinkerGpioLine.is_requested()) {
-        leftBlinkerGpioLine.set_value(0);
-        leftBlinkerGpioLine.release();
-    }
+    // if (leftBlinkerGpioLine.is_requested()) {
+    //     leftBlinkerGpioLine.set_value(0);
+    //     leftBlinkerGpioLine.release();
+    // }
+
+    gpio.setGpioValue(leftBlinkerGpioPin, 0);
+    gpio.setGpioValue(leftBlinkerGpioPin, 0);
 }
