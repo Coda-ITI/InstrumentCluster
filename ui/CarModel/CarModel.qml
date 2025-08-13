@@ -6,8 +6,8 @@ import InstrumentCluster 1.0
 Video {
     id: carModel
     source: ThemeSettings.isLightMode
-           ? "file://home/Light_Theme.webm"
-           : "file://home/Dark_Theme.webm"
+           ? "file:///home/Light_Theme.webm"
+           : "file:///home/Dark_Theme.webm"
     autoPlay: false
     loops: MediaPlayer.Infinite
     width: parent.width * 3.5 / 8
@@ -26,8 +26,8 @@ Video {
         function onIsLightModeChanged() {
             carModel.pause()
             carModel.source = ThemeSettings.isLightMode
-                ? "file://home/Light_Theme.webm"
-                : "file://home/Dark_Theme.webm"
+                ? "file:///home/Light_Theme.webm"
+                : "file:///home/Dark_Theme.webm"
             if (readings.speedVal > 0) {
                 carModel.play()
             }
