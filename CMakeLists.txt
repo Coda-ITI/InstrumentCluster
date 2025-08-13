@@ -76,6 +76,7 @@ target_link_libraries(appInstrumentCluster PRIVATE Qt6::Core)
 
 # ADDED BY ME
 target_link_libraries(appInstrumentCluster PRIVATE ${GPIOD_LIBRARIES})
+target_include_directories(appInstrumentCluster PRIVATE ${GPIOD_INCLUDE_DIRS})
 
 include(GNUInstallDirs)
 install(TARGETS appInstrumentCluster
