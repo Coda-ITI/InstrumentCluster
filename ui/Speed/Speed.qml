@@ -13,7 +13,14 @@ Rectangle {
             verticalCenter: speed.verticalCenter
         }
         text: readings.speedVal
-        color: ThemeSettings.isLightMode ? "#000000" : "#D0D0D0"
+        color: {
+            let overLimit = (readings.detectedRoadSign === "SpeedLimit50" && readings.speedVal > 50) ||
+                            (readings.detectedRoadSign === "SpeedLimit80" && readings.speedVal > 80);
+            if (readings.detectedRoadSign === "Stop" || overLimit) {
+                return ThemeSettings.isLightMode ? "#A9272D" : "#CC4E4E";
+            }
+            return ThemeSettings.isLightMode ? "#000000" : "#D0D0D0";
+        }
         font.pixelSize: 144
         font.capitalization: Font.Capitalize
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
@@ -27,7 +34,16 @@ Rectangle {
             top: speedVal.bottom
         }
         text: qsTr("KM/H")
-        color: ThemeSettings.isLightMode ? "#5A5A5A" : "#A5A5A5"
+        // color: ThemeSettings.isLightMode ? "#5A5A5A" : "#A5A5A5"
+        color: {
+            let overLimit = (readings.detectedRoadSign === "SpeedLimit50" && readings.speedVal > 50) ||
+                            (readings.detectedRoadSign === "SpeedLimit80" && readings.speedVal > 80);
+            if (readings.detectedRoadSign === "Stop" || overLimit) {
+                // Slightly muted red shades to match normal tone difference
+                return ThemeSettings.isLightMode ? "#C14C4C" : "#E17878";
+            }
+            return ThemeSettings.isLightMode ? "#5A5A5A" : "#A5A5A5";
+        }
         font.pixelSize: 36
         font.capitalization: Font.Capitalize
         font.family: "qrc:/ui/fonts/HelveticaNeueLTCom-Roman.tff"
@@ -43,7 +59,6 @@ Rectangle {
         }
         width: speed.width / 7
         height: speed.height / 7
-        // source: "qrc:/ui/assets/speed-limit-test.png"
         fillMode: Image.PreserveAspectFit
         source: {
             switch (readings.detectedRoadSign) {
