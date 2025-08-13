@@ -41,11 +41,11 @@ private:
 
     const std::string chipName = "gpiochip0";
 
-    // gpiod::chip chip;
+    gpiod::chip chip;
 
-    // gpiod::line lowBeamGpioLine;
-    // gpiod::line highBeamGpioLine;
-    // gpiod::line fogBeamGpioLine;
+    gpiod::line lowBeamGpioLine;
+    gpiod::line highBeamGpioLine;
+    gpiod::line fogBeamGpioLine;
 
     const int lowBeamGpioPin = LOW_BEAM_PIN;
     const int highBeamGpioPin = HIGH_BEAM_PIN;

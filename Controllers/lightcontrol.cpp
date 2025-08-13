@@ -8,28 +8,28 @@ LightControl::LightControl(QObject *parent)
 {
 
     std::cout << "is the constructor getting called?" << std::endl;
-    // chip = chip(chipName);
+    chip = gpiod::chip(chipName);
 
-    // lowBeamGpioLine = chip.get_line(lowBeamGpioPin);
-    // lowBeamGpioLine.request({
-    //     "lowBeamGpioLine",
-    //     gpiod::line_request::DIRECTION_OUTPUT,
-    //     0
-    // });
+    lowBeamGpioLine = chip.get_line(lowBeamGpioPin);
+    lowBeamGpioLine.request({
+        "lowBeamGpioLine",
+        gpiod::line_request::DIRECTION_OUTPUT,
+        0
+    });
 
-    // highBeamGpioLine = chip.get_line(highBeamGpioPin);
-    // highBeamGpioLine.request({
-    //     "highBeamGpioLine",
-    //     gpiod::line_request::DIRECTION_OUTPUT,
-    //     0
-    // });
+    highBeamGpioLine = chip.get_line(highBeamGpioPin);
+    highBeamGpioLine.request({
+        "highBeamGpioLine",
+        gpiod::line_request::DIRECTION_OUTPUT,
+        0
+    });
 
-    // fogBeamGpioLine = chip.get_line(fogBeamGpioPin);
-    // fogBeamGpioLine.request({
-    //     "fogBeamGpioLine",
-    //     gpiod::line_request::DIRECTION_OUTPUT,
-    //     0
-    // });
+    fogBeamGpioLine = chip.get_line(fogBeamGpioPin);
+    fogBeamGpioLine.request({
+        "fogBeamGpioLine",
+        gpiod::line_request::DIRECTION_OUTPUT,
+        0
+    });
 }
 
 bool LightControl::lowBeam() const
@@ -48,7 +48,7 @@ void LightControl::setLowBeam(bool newLowBeam)
     std::cout << "m_lowBeam = " <<  m_lowBeam << std::endl;
 
     // added by me
-    // gpioPinWrite(lowBeamGpioPin, m_lowBeam? 1 : 0);
+    gpioPinWrite(lowBeamGpioPin, m_lowBeam? 1 : 0);
 }
 
 bool LightControl::highBeam() const
@@ -67,7 +67,7 @@ void LightControl::setHighBeam(bool newHighBeam)
     std::cout << "m_highBeam = " <<  m_highBeam << std::endl;
 
     // added by me
-    // gpioPinWrite(highBeamGpioPin, m_highBeam? 1 : 0);
+    gpioPinWrite(highBeamGpioPin, m_highBeam? 1 : 0);
 }
 
 bool LightControl::fogBeam() const
@@ -86,7 +86,7 @@ void LightControl::setFogBeam(bool newFogBeam)
     std::cout << "m_fogBeam = " <<  m_fogBeam << std::endl;
 
     // added by me
-    // gpioPinWrite(fogBeamGpioPin, m_fogBeam? 1 : 0);
+    gpioPinWrite(fogBeamGpioPin, m_fogBeam? 1 : 0);
 }
 
 void LightControl::gpioPinWrite(const int &gpioPin, const int &value)
@@ -94,33 +94,33 @@ void LightControl::gpioPinWrite(const int &gpioPin, const int &value)
     switch (gpioPin)
     {
         case LOW_BEAM_PIN:
-            // lowBeamGpioLine.set_value(value);
+            lowBeamGpioLine.set_value(value);
         break;
 
         case HIGH_BEAM_PIN:
-            // highBeamGpioLine.set_value(value);
+            highBeamGpioLine.set_value(value);
         break;
 
         case FOG_BEAM_PIN:
-            // fogBeamGpioLine.set_value(value);
+            fogBeamGpioLine.set_value(value);
         break;
     }
 }
 
 LightControl::~LightControl()
 {
-    // if (lowBeamGpioLine.is_requested()) {
-    //     lowBeamGpioLine.set_value(0);
-    //     lowBeamGpioLine.release();
-    // }
+    if (lowBeamGpioLine.is_requested()) {
+        lowBeamGpioLine.set_value(0);
+        lowBeamGpioLine.release();
+    }
 
-    // if (highBeamGpioLine.is_requested()) {
-    //     highBeamGpioLine.set_value(0);
-    //     highBeamGpioLine.release();
-    // }
+    if (highBeamGpioLine.is_requested()) {
+        highBeamGpioLine.set_value(0);
+        highBeamGpioLine.release();
+    }
 
-    // if (fogBeamGpioLine.is_requested()) {
-    //     fogBeamGpioLine.set_value(0);
-    //     fogBeamGpioLine.release();
-    // }
+    if (fogBeamGpioLine.is_requested()) {
+        fogBeamGpioLine.set_value(0);
+        fogBeamGpioLine.release();
+    }
 }
