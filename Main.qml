@@ -14,10 +14,10 @@ import "ui/Speed"
 import "ui/BottomLine"
 
 Window {
-    width: 1024
-    height: 600
-    visible: true
-    title: qsTr("Hello World")
+    width: 640
+    height: 480
+    visibility: Window.FullScreen
+    title: qsTr("InstrumentCluster")
     color: "#f0f0f0"
     FooterBar {
         id: footerBar
