@@ -2,7 +2,7 @@
 
 ReadingsCommPortal::ReadingsCommPortal(QObject *parent)
     : QObject{parent}
-    , m_speedVal("0")
+    , m_speedVal("50")
     , m_selectedGear("P")
     , m_detectedRoadSign("SpeedLimit50")
     , m_isLightMode(false)
