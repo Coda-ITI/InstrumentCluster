@@ -3,87 +3,28 @@ import QtMultimedia
 // import Qt.labs.lottieqt 1.0
 import InstrumentCluster 1.0
 
-// Video {
-//     id: carModel
-//     source: ThemeSettings.isLightMode
-             // ? QUrl.fromLocalFile("/home/Light_Theme.mp4")
-             // : QUrl.fromLocalFile("/home/Dark_Theme.mp4")
-//     autoPlay: false
-//     loops: MediaPlayer.Infinite
-//     width: parent.width * 3.5 / 8
-//     height: parent.height
-
-//     Component.onCompleted: {
-//         if (readings.speedVal > 0) {
-//             carModel.play()
-//         } else {
-//             carModel.pause()
-//         }
-//     }
-
-//     Connections {
-//         target: ThemeSettings
-//         function onIsLightModeChanged() {
-//             carModel.pause()
-//             carModel.source = ThemeSettings.isLightMode
-//                 ? QUrl.fromLocalFile("/home/Light_Theme.mp4")
-//                 : QUrl.fromLocalFile("/home/Dark_Theme.mp4")
-//             if (readings.speedVal > 0) {
-//                 carModel.play()
-//             }
-//         }
-//     }
-
-//     Connections {
-//         target: readings
-//         function onSpeedValChanged() {
-//             if (readings.speedVal === 0) {
-//                 carModel.pause()
-//             } else if (carModel.playbackState !== MediaPlayer.PlayingState) {
-//                 carModel.play()
-//             }
-//         }
-//     }
-// }
-
-
-Item {
-    id: carModelContainer
+AnimatedImage {
+    id: carModel
+    source: ThemeSettings.isLightMode
+        ? "qrc:/ui/assets/Light_Theme.gif"
+        : "qrc:/ui/assets/Dark_Theme.gif"
+    playing: false
     width: parent.width * 3.5 / 8
     height: parent.height
 
-    MediaPlayer {
-        id: carModelPlayer
-        source: ThemeSettings.isLightMode
-            ? QUrl.fromLocalFile("/home/Light_Theme.mp4")
-            : QUrl.fromLocalFile("/home/Dark_Theme.mp4")
-        loops: MediaPlayer.Infinite
-        videoOutput: carModelOutput
-
-        Component.onCompleted: {
-            if (readings.speedVal > 0) {
-                play()
-            } else {
-                pause()
-            }
-        }
-    }
-
-    VideoOutput {
-        id: carModelOutput
-        anchors.fill: parent
-        fillMode: VideoOutput.PreserveAspectFit
+    Component.onCompleted: {
+        playing = readings.speedVal > 0
     }
 
     Connections {
         target: ThemeSettings
         function onIsLightModeChanged() {
-            carModelPlayer.pause()
-            carModelPlayer.source = ThemeSettings.isLightMode
-                ? QUrl.fromLocalFile("/home/Light_Theme.mp4")
-                : QUrl.fromLocalFile("/home/Dark_Theme.mp4")
+            playing = false
+            source = ThemeSettings.isLightMode
+                ? "qrc:/ui/assets/Light_Theme.gif"
+                : "qrc:/ui/assets/Dark_Theme.gif"
             if (readings.speedVal > 0) {
-                carModelPlayer.play()
+                playing = true
             }
         }
     }
@@ -92,18 +33,11 @@ Item {
         target: readings
         function onSpeedValChanged() {
             if (readings.speedVal === 0) {
-                carModelPlayer.pause()
-            } else if (carModelPlayer.playbackState !== MediaPlayer.PlayingState) {
-                carModelPlayer.play()
+                playing = false
+            } else if (!playing) {
+                playing = true
             }
         }
     }
 }
 
-// LottieAnimation {
-//     id: carModel
-//     source: "qrc:/ui/assets/Light_Theme.json"
-//     loops: LottieAnimation.Infinite
-//     width: parent.width / 2
-//     height: parent.height * 9 / 10
-// }

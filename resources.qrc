@@ -47,5 +47,7 @@
         <file>ui/assets/stop.png</file>
         <file>ui/assets/turn-left.png</file>
         <file>ui/assets/turn-right.png</file>
+        <file>ui/assets/Dark_Theme.gif</file>
+        <file>ui/assets/Light_Theme.gif</file>
     </qresource>
 </RCC>
