@@ -18,7 +18,7 @@ constexpr int SPEED_MSG_ID = 0x01; // str
 constexpr int GEAR_MSG_ID = 0x02; // str (single char --- selected gear property)
 constexpr int SIGN_MSG_ID = 0x03; // str
 constexpr int THEME_MSG_ID = 0x04; // bool flag
-constexpr const char* SOCKET_FILE_FULL_PATH = "/tmp/sock_file"; // socket file
+constexpr const char* SOCKET_FILE_FULL_PATH = "/tmp/comm_manager_socket"; // socket file
 
 class ReadingsCommPortal : public QObject
 {
