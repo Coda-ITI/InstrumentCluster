@@ -18,3 +18,20 @@ This is the instrument cluster app in Coda: a Qt6 application with C++ backend f
 8. Clock.
 9. Ambient Temperature.
 
+## Design Architecture
+
+### Frontend: QML
+The design strategy was to create custom components for every element in the app. The main components present in the `Main.qml` are:
+1. FooterBar: contains ITI's logo, clock, and temperature.
+2. MainScreen: this is the frame that governs the rest of the components.
+
+Inside `MainScreen`, these components are used:
+1. GearShiftBar: shows gears.
+2. LightControlBar: shows light beam controls.
+3. CarModel: shows the car animation.
+4. SpeedometerPlusSign: the frame that governs the components at the right hand side (except for the GearShiftBar).
+
+Inside `SpeedometerPlusSign`, these components are used:
+1. Indicators: left and right blinkers.
+2. Speed: speed value + unit + road sign image.
+3. BottomLine: for styling.
