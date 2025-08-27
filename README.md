@@ -72,3 +72,6 @@ target_include_directories(appInstrumentCluster PRIVATE
     ${GPIOHAL_INCLUDE_DIRS}
 )
 ```
+
+## Demo
+![Demo Video](./README_Assets/socket_demo.mkv)
