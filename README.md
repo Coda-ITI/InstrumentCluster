@@ -4,8 +4,8 @@
 This is the instrument cluster app in Coda: a Qt6 application with C++ backend for the best performance possible and the sleekest drip. The main design inspiration was the instrument cluster of Tesla Model Y's. 
 
 ## Design Overview
-![](./README_assets/light.png)
-![](./README_assets/dark.png)
+![](./README_Assets/light.png)
+![](./README_Assets/dark.png)
 
 ## Main Features
 1. Light Control: interactive buttons for low, high, and fog beams.
