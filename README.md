@@ -73,5 +73,10 @@ target_include_directories(appInstrumentCluster PRIVATE
 )
 ```
 
+### Testing Communications: Python Script
+A python script was created to feed the app dummy data through the socket just to check the validity of the implemented logic
+
 ## Demo
-[Demo Video](./README_Assets/socket_demo.mkv)
+
+https://github.com/user-attachments/assets/e843ead4-db6b-408b-845b-780a14856828
+
