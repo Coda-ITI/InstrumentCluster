@@ -35,3 +35,10 @@ Inside `SpeedometerPlusSign`, these components are used:
 1. Indicators: left and right blinkers.
 2. Speed: speed value + unit + road sign image.
 3. BottomLine: for styling.
+
+### Backend: C++
+There are 4 classes defined and used in the app:
+1. System: this is responsible for updating the clock.
+2. ReadingsCommPortal: this is responsible for fetching the readings sent by the CommManagerService via a Unix Domain Socket.
+3. LightControl: this is responsible for handling UI light beam buttons' clicks to set the value of certain GPIO pins accordingly.
+4. Indicators: similar to LightControl, this is responsible for handling blinkers' button clicks to set the value of certain GPIO pins accordingly.
