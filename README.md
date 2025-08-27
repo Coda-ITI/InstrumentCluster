@@ -74,4 +74,4 @@ target_include_directories(appInstrumentCluster PRIVATE
 ```
 
 ## Demo
-![Demo Video](./README_Assets/socket_demo.mkv)
+[Demo Video](./README_Assets/socket_demo.mkv)
