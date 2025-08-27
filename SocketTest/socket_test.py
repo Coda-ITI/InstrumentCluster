@@ -4,7 +4,7 @@ import os
 import time
 import itertools
 
-SOCKET_PATH = "/tmp/sock_file"
+SOCKET_PATH = "/tmp/comm_manager_socket"
 
 # Remove the socket file if it already exists
 if os.path.exists(SOCKET_PATH):
