@@ -1,7 +1,9 @@
 # InstrumentCluster
 
 ## Introduction
-This is the instrument cluster app in Coda: a Qt6 application with C++ backend for the best performance possible and the sleekest drip. The main design inspiration was the instrument cluster of Tesla Model Y's. 
+This is the instrument cluster app in Coda: a Qt6 application with C++ backend for the best performance possible and the sleekest drip. The main design inspiration was the instrument cluster of Tesla Model Y's. \
+
+The app is designed to be run on a custom Yocto distro on a Raspberry Pi 5. Note that the app's CMakeLists file has been modified since it depends on both `libgpiod` and a custom library for using `libgpiod`; both present in Coda's official meta layer [here](https://github.com/Coda-ITI/meta-coda). You can simply utilise the created [repo manifest](https://github.com/Coda-ITI/cluster_manifest) to fetch everything related to the Cluster Node for you if you want to run it yourself.
 
 ## Design Overview
 ![](./README_Assets/light.png)
